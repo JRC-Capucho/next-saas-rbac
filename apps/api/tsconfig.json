@@ -1,4 +1,10 @@
 {
   "extends": "@acl/tsconfig/node.json",
-  "include": [ "src/**/*" ]
+  "include": [ "src/**/*","@types/*" ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*" :["./src/*"]
+    }
+  }
 }
