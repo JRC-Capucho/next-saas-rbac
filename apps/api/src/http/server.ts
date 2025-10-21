@@ -1,5 +1,6 @@
 import fastifyCors from '@fastify/cors'
 import { fastify } from 'fastify'
+import { env } from '@acl/env'
 
 import {
   jsonSchemaTransform,
@@ -7,7 +8,7 @@ import {
   validatorCompiler,
   ZodTypeProvider
 } from 'fastify-type-provider-zod'
-import { authenticateWithPassword, createAccount, getProfile, requestPasswordRecover, resetPassword } from './routes'
+import { authenticateWithGithub, authenticateWithPassword, createAccount, createOrganization, getMembership, getOrganization, getOrganizations, getProfile, requestPasswordRecover, resetPassword } from './routes'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUi from '@fastify/swagger-ui'
 import fastifyJwt from '@fastify/jwt'
@@ -27,6 +28,15 @@ app.register(fastifySwagger, {
       version: "1.0.0"
     },
     servers: [],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT'
+        }
+      }
+    }
   },
   transform: jsonSchemaTransform
 })
@@ -37,7 +47,7 @@ app.register(fastifySwaggerUi, {
 
 
 app.register(fastifyJwt, {
-  secret: 'secret'
+  secret: env.JWT_SECRET
 })
 
 app.register(fastifyCors)
@@ -49,6 +59,12 @@ app.register(authenticateWithPassword)
 app.register(getProfile)
 app.register(requestPasswordRecover)
 app.register(resetPassword)
+app.register(authenticateWithGithub)
+
+app.register(createOrganization)
+app.register(getMembership)
+app.register(getOrganization)
+app.register(getOrganizations)
 
 app.listen({ port: 3333 }).then(() => {
   console.log('HTTP server running')

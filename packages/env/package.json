@@ -1,0 +1,23 @@
+{
+  "name": "@acl/env",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.ts",
+  "types": "index.ts",
+  "devDependencies": {
+    "@acl/eslint-config": "workspace:*",
+    "@acl/prettier": "workspace:*",
+    "@acl/tsconfig": "workspace:*",
+    "@types/node": "^24.8.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@acl/eslint-config/library"
+    ]
+  },
+  "prettier": "@acl/prettier",
+  "dependencies": {
+    "@t3-oss/env-nextjs": "^0.13.8",
+    "zod": "^4.1.12"
+  }
+}

@@ -6,6 +6,8 @@ import z from "zod";
 export async function requestPasswordRecover(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().post('/password/recover', {
     schema: {
+      tags: ['auth'],
+      summary: 'Get authenticated user profile',
       body: z.object({
         email: z.email()
       }),
