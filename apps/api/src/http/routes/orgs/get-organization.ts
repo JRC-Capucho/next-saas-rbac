@@ -6,7 +6,7 @@ import z from "zod";
 export async function getOrganization(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>()
     .register(auth)
-    .get("/organization/:slug", {
+    .get("/organizations/:slug", {
       schema: {
         tags: ['organizations'],
         summary: 'Get details from organization',

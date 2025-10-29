@@ -8,7 +8,11 @@ import {
   validatorCompiler,
   ZodTypeProvider
 } from 'fastify-type-provider-zod'
-import { authenticateWithGithub, authenticateWithPassword, createAccount, createOrganization, getMembership, getOrganization, getOrganizations, getProfile, requestPasswordRecover, resetPassword } from './routes'
+import {
+  authenticateWithGithub,
+  authenticateWithPassword, createAccount, createOrganization, createProject, deleteProject, getMembers, getMembership, getOrganization, getOrganizations, getProfile, getProject, getProjects, removeMember, requestPasswordRecover, resetPassword, shutdownOrganization, transferOrganization, updateMember, updateOrganization,
+  updateProject
+} from './routes'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUi from '@fastify/swagger-ui'
 import fastifyJwt from '@fastify/jwt'
@@ -45,7 +49,6 @@ app.register(fastifySwaggerUi, {
   routePrefix: '/docs'
 })
 
-
 app.register(fastifyJwt, {
   secret: env.JWT_SECRET
 })
@@ -65,6 +68,20 @@ app.register(createOrganization)
 app.register(getMembership)
 app.register(getOrganization)
 app.register(getOrganizations)
+app.register(transferOrganization)
+app.register(shutdownOrganization)
+app.register(updateOrganization)
+
+app.register(createProject)
+app.register(deleteProject)
+app.register(getProject)
+app.register(getProjects)
+app.register(updateProject)
+
+app.register(getMembers)
+app.register(updateMember)
+app.register(removeMember)
+
 
 app.listen({ port: 3333 }).then(() => {
   console.log('HTTP server running')

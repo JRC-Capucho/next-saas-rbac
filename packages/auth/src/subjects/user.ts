@@ -5,7 +5,7 @@ export const userSubject = z.tuple([
   z.union([
     z.literal('get'),
     z.literal('delete'),
-    z.literal('invite'),
+    z.literal('update'),
     z.literal('manage'),
   ]
   ),
