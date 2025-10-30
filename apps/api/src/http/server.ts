@@ -9,8 +9,9 @@ import {
   ZodTypeProvider
 } from 'fastify-type-provider-zod'
 import {
+  acceptInvite,
   authenticateWithGithub,
-  authenticateWithPassword, createAccount, createOrganization, createProject, deleteProject, getMembers, getMembership, getOrganization, getOrganizations, getProfile, getProject, getProjects, removeMember, requestPasswordRecover, resetPassword, shutdownOrganization, transferOrganization, updateMember, updateOrganization,
+  authenticateWithPassword, createAccount, createInvite, createOrganization, createProject, deleteProject, getInvite, getInvites, getMembers, getMembership, getOrganization, getOrganizationBilling, getOrganizations, getPendingInvites, getProfile, getProject, getProjects, rejectInvite, removeMember, requestPasswordRecover, resetPassword, revokeInvite, shutdownOrganization, transferOrganization, updateMember, updateOrganization,
   updateProject
 } from './routes'
 import fastifySwagger from '@fastify/swagger'
@@ -42,11 +43,11 @@ app.register(fastifySwagger, {
       }
     }
   },
-  transform: jsonSchemaTransform
+  transform: jsonSchemaTransform,
 })
 
 app.register(fastifySwaggerUi, {
-  routePrefix: '/docs'
+  routePrefix: '/docs',
 })
 
 app.register(fastifyJwt, {
@@ -82,6 +83,15 @@ app.register(getMembers)
 app.register(updateMember)
 app.register(removeMember)
 
+app.register(createInvite)
+app.register(getInvite)
+app.register(getInvites)
+app.register(acceptInvite)
+app.register(rejectInvite)
+app.register(revokeInvite)
+app.register(getPendingInvites)
+
+app.register(getOrganizationBilling)
 
 app.listen({ port: 3333 }).then(() => {
   console.log('HTTP server running')
