@@ -1,0 +1,17 @@
+{
+	"name": "@acl/biome",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		"./node": "./node.json",
+		"./nextjs": "./nextjs.json"
+	},
+	"files": [
+		"node.json",
+		"nextjs.json"
+	],
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.2"
+	}
+}

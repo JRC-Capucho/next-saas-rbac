@@ -1,0 +1,18 @@
+{
+	"extends": ["./base.json"],
+	"javascript": {
+		"formatter": {
+			"semicolons": "asNeeded"
+		},
+		"globals": ["process", "Buffer", "console", "global"],
+		"parser": {
+			"unsafeParameterDecoratorsEnabled": true
+		}
+	},
+	"linter": {
+		"rules": {
+			"complexity": "warn",
+			"security": "warn"
+		}
+	}
+}

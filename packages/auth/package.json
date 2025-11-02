@@ -5,16 +5,9 @@
   "main": "src/index.ts",
   "types": "src/index.ts",
   "devDependencies": {
-    "@acl/eslint-config": "workspace:*",
-    "@acl/prettier": "workspace:*",
+    "@acl/biome": "workspace:*",
     "@acl/tsconfig": "workspace:*"
   },
-  "eslintConfig": {
-    "extends": [
-      "@acl/esling-config/library"
-    ]
-  },
-  "prettier": "@acl/prettier",
   "dependencies": {
     "@casl/ability": "^6.7.3",
     "zod": "^4.1.12"

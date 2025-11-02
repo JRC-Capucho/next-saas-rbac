@@ -1,44 +1,42 @@
 {
-  "name": "@acl/api",
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "pnpm env:load tsx watch src/http/server.ts",
-    "db:migrate": "pnpm env:load prisma migrate dev",
-    "db:studio": "pnpm env:load prisma studio",
-    "env:load": "dotenv -e ../../.env --"
-  },
-  "dependencies": {
-    "@acl/auth": "workspace:*",
-    "@fastify/cors": "^11.1.0",
-    "@fastify/jwt": "^10.0.0",
-    "@fastify/swagger": "^9.5.2",
-    "@fastify/swagger-ui": "^5.2.3",
-    "@prisma/client": "6.17.1",
-    "bcryptjs": "^3.0.2",
-    "dotenv-cli": "^10.0.0",
-    "fastify": "^5.6.1",
-    "fastify-plugin": "^5.1.0",
-    "fastify-type-provider-zod": "^6.0.0",
-    "zod": "^4.1.12"
-  },
-  "devDependencies": {
-    "@acl/env": "workspace:*",
-    "@acl/eslint-config": "workspace:*",
-    "@acl/prettier": "workspace:*",
-    "@acl/tsconfig": "workspace:*",
-    "@faker-js/faker": "^10.1.0",
-    "@types/bcryptjs": "^3.0.0",
-    "@types/node": "^24.8.1",
-    "prisma": "^6.17.1",
-    "tsx": "^4.20.6"
-  },
-  "eslintConfig": {
-    "extends": [
-      "@acl/esling-config/node"
-    ]
-  },
-  "prettier": "@acl/prettier",
-  "prisma": {
-    "seed": "tsx prisma/seed.ts"
-  }
+	"name": "@acl/api",
+	"version": "0.0.0",
+	"scripts": {
+		"dev": "pnpm env:load tsx watch src/http/server.ts",
+		"db:migrate": "pnpm env:load prisma migrate dev",
+		"db:studio": "pnpm env:load prisma studio",
+		"env:load": "dotenv -e ../../.env --"
+	},
+	"dependencies": {
+		"@acl/auth": "workspace:*",
+		"@fastify/cors": "^11.1.0",
+		"@fastify/jwt": "^10.0.0",
+		"@fastify/swagger": "^9.5.2",
+		"@fastify/swagger-ui": "^5.2.3",
+		"@prisma/client": "6.17.1",
+		"bcryptjs": "^3.0.2",
+		"dotenv-cli": "^10.0.0",
+		"fastify": "^5.6.1",
+		"fastify-plugin": "^5.1.0",
+		"fastify-type-provider-zod": "^6.0.0",
+		"zod": "^4.1.12"
+	},
+	"devDependencies": {
+		"@acl/env": "workspace:*",
+		"@acl/tsconfig": "workspace:*",
+		"@acl/biome": "workspace:*",
+		"@faker-js/faker": "^10.1.0",
+		"@types/bcryptjs": "^3.0.0",
+		"@types/node": "^24.8.1",
+		"prisma": "^6.17.1",
+		"tsx": "^4.20.6"
+	},
+	"biome": {
+		"extends": [
+			"@acl/biome/node"
+		]
+	},
+	"prisma": {
+		"seed": "tsx prisma/seed.ts"
+	}
 }
