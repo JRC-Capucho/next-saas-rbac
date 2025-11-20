@@ -1,10 +1,10 @@
-import { defineAbilityFor, Role, userSchema } from '@acl/auth';
+import { defineAbilityFor, type Role, userSchema } from "@acl/auth"
 
 export function getUserPermissions(userId: string, role: Role) {
-  const authUser = userSchema.parse({
-    id: userId,
-    role
-  })
+	const authUser = userSchema.parse({
+		id: userId,
+		role,
+	})
 
-  return defineAbilityFor(authUser)
+	return defineAbilityFor(authUser)
 }
