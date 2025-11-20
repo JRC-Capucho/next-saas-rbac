@@ -1,6 +1,6 @@
-import { createOrganization } from "@/http/create-organization"
 import { HTTPError } from "ky"
 import z from "zod"
+import { createOrganization } from "@/http/create-organization"
 
 const organizationSchema = z
   .object({
